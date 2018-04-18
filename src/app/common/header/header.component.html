@@ -1,0 +1,18 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <a class="navbar-brand navbar-nav mr-auto" href="#">NgVetaDashboard</a>
+    <div  *ngIf="authService.isLoggedIn()" class="header-rightside form-inline my-4 my-lg-0">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><img src="" alt="user" >
+                    <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <div class="navbar-content">
+                            <a (click)="logout()" class="view btn-sm active">Sign Out</a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

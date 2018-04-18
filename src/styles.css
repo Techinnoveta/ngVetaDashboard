@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.css";
+
+
+body {
+	background-image: linear-gradient(0deg, #000000 0%, #1c364b 50%, #000000 100%);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.navbar-light .navbar-toggler-icon {
+  	background-image: url("data:image/svg+xml;charset=utf8,<svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path stroke='#eceeef' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/></svg>");
+}

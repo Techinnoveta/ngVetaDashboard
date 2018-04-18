@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  constructor() {}
+
+  public ngOnInit() {
+    console.log('Initial App State');
+  }
 }

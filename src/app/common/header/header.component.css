@@ -1,0 +1,55 @@
+nav {
+  	background-color:#000000;
+	color: white;
+    border-bottom: 2px solid #99969040;
+}
+.navbar-light .navbar-brand, .navbar-light .navbar-toggler {
+    color: white;
+}
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.open, .navbar-light .navbar-nav .open>.nav-link {
+    color: white;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-light .navbar-toggler {
+    border-color: white;
+}
+
+.navsecond {
+	background-color: #132a42;
+	padding: 0px;
+}
+
+.btn:hover {
+	background-color: #2d2c2c;
+}
+
+.mr-auto {
+    width: 100%;
+    padding: 0;
+}
+    
+.header-rightside {
+    width: 180px;
+}
+
+.header-rightside > li > a:focus,
+.header-rightside > li > a:hover {
+    background: none;
+    text-decoration: none;
+}
+
+@media only screen and (min-device-width: 767px) and (max-device-width: 998px){
+    .header-rightside {
+        display: inline-block;
+        float: left;
+        width: 100%;
+    }
+    .header-rightside img {
+        max-width: 41px !important;
+    } 
+}
