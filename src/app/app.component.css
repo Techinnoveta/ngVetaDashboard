@@ -4,7 +4,20 @@ main {
 }
 
 .card {
-	margin-top: 15px
+	margin-top: 15px;
+	background-color: rgba(0, 0, 0, 0.19);
+    border: 1px solid rgb(27, 52, 72);
+}
+
+.card-body {
+	padding: 20px;
+}
+
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #0a131a;
+    border-bottom: 1px solid rgba(0,0,0,.125);
 }
 
 .row {
