@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
 
 ## live DEMO
-[ngVetaDashboard](https://techinnoveta.github.io/ngVetaDashboard)
+[ngVetaDashboard](https://techinnoveta.github.io/ngVetaDashboard/dashboard)
 
 ## Development server
 
