@@ -3,6 +3,11 @@ nav {
 	color: white;
     border-bottom: 2px solid #99969040;
 }
+
+.navbar {
+    padding: 1rem 1rem
+}
+
 .navbar-light .navbar-brand, .navbar-light .navbar-toggler {
     color: white;
 }
@@ -52,4 +57,13 @@ nav {
     .header-rightside img {
         max-width: 41px !important;
     } 
+}
+
+
+.dropdown-item {
+    color: #f0f4f5;
+}
+
+.dropdown-menu {
+    background-color: #000;
 }

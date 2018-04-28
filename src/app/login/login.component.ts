@@ -53,9 +53,15 @@ export class LoginComponent implements OnInit {
           			}
                 }
             );*/
+		} else if(!this.loginForm.controls.password.valid) {
+			this.userlogin.error = true;
+			this.userlogin.errorMgs = "Invalied Password";
+		} else if(!this.loginForm.controls.username.valid) {
+			this.userlogin.error = true;
+			this.userlogin.errorMgs = "Please input valid Email";
 		} else {
 			this.userlogin.error = true;
-			this.userlogin.errorMgs = "Invalied Fields"
+			this.userlogin.errorMgs = "Invalied Fields";
 		}
 	}
 

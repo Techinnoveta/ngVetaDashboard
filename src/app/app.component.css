@@ -2,3 +2,11 @@ main {
     min-height: calc(100vh - 120px);
     color: #ffffff;
 }
+
+.card {
+	margin-top: 15px
+}
+
+.row {
+	margin-right: 0px;
+}

@@ -1,6 +1,33 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <a class="navbar-brand navbar-nav mr-auto" href="#">NgVetaDashboard</a>
-    <div  *ngIf="authService.isLoggedIn()" class="header-rightside form-inline my-4 my-lg-0">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+  </button>
+    <a class="navbar-brand navbar-nav mr-auto" href="#">NgVetaDashboard</a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <!-- This menu is hidden in bigger devices with d-sm-none. 
+               The sidebar isn't proper for smaller screens imo, so this dropdown menu can keep all the useful sidebar itens exclusively for smaller screens  -->
+            <li class="nav-item dropdown d-sm-block d-md-none">
+                <a class="nav-link dropdown-toggle" href="#" id="smallerscreenmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Menu 1
+                </a>
+                <div class="dropdown-menu" aria-labelledby="smallerscreenmenu1">
+                    <a class="dropdown-item" href="#">Dashboard</a>
+                    <a class="dropdown-item" href="#">Profile</a>
+                </div>
+
+                <a class="nav-link dropdown-toggle" href="#" id="smallerscreenmenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Menu 2
+                </a>
+                <div class="dropdown-menu" aria-labelledby="smallerscreenmenu2">
+                    <a class="dropdown-item" href="#">Tasks</a>
+                    <a class="dropdown-item" href="#">Etc ...</a>
+                </div>
+            </li><!-- Smaller devices menu END -->
+          
+        </ul>
+    </div>
+    <div  *ngIf="authService.isLoggedIn()" class="header-rightside form-inline my-4 my-lg-0 d-sm-none">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><img src="" alt="user" >

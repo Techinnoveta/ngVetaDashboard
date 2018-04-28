@@ -1,7 +1,7 @@
 <div class="row justify-content-md-center login"> 
-	<div class="col-sm-4">
+	<div class="login-container col-sm-4">
 		<form [formGroup]="loginForm" (ngSubmit)="login()">
-			<h1>TAGG Treasury</h1>
+			<h1>Ng VetaDashboard</h1>
 			<h2>Sign in to start your session.</h2>
 			<input type="text" formControlName = "username" (ngModelChange)="clearData()" class="form-control" aria-label="Book" aria-describedby="wbasic-addon1" placeholder="Username" required>
 			<input type="password" formControlName="password" (ngModelChange)="clearData()" class="form-control" aria-label="Book" aria-describedby="wbasic-addon1" placeholder="Password" required>
