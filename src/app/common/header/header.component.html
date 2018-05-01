@@ -27,12 +27,12 @@
           
         </ul>
     </div>
-    <div  *ngIf="authService.isLoggedIn()" class="header-rightside form-inline my-4 my-lg-0 d-sm-none">
+    <div  *ngIf="authService.isLoggedIn()" class="header-rightside form-inline .d-sm-none .d-md-block">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><img src="" alt="user" >
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><img class="profile-img" src="assets/img/avatar.png" alt="user" >
                     <b class="caret"></b></a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu profile">
                     <li>
                         <div class="navbar-content">
                             <a (click)="logout()" class="view btn-sm active">Sign Out</a>

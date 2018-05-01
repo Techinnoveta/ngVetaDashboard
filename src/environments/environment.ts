@@ -1,4 +1,4 @@
 export const environment = {
 	production: false,
- 	apiurl: 'https://dev2.playtagg.com/tagg/tagg'
+ 	apiurl: 'http://192.168.56.101:4400/dev'
 };

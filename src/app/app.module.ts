@@ -8,8 +8,8 @@ import { AppComponent } from './app.component';
 import { NoContentComponent } from './no-content';
 
 import {
-  RouterModule,
-  PreloadAllModules
+    RouterModule,
+    PreloadAllModules
 } from '@angular/router';
 
 import { ROUTES } from './app.routes';
@@ -25,31 +25,34 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { LoginService } from './login/login.service';
 import { SidebarComponent } from './common/sidebar/sidebar.component';
+import { MenuService } from './common/menu/menu.service';
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NoContentComponent,
-    FooterComponent,
-    HeaderComponent,
-    LoginComponent,
-    DashboardComponent,
-    SidebarComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpModule,
-    HttpClientModule,
-    RouterModule.forRoot(ROUTES)
-  ],
-  providers: [
-    AuthGuard,
-    AppService,
-    AuthService,
-    LoginService
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NoContentComponent,
+        FooterComponent,
+        HeaderComponent,
+        LoginComponent,
+        DashboardComponent,
+        SidebarComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpModule,
+        HttpClientModule,
+        RouterModule.forRoot(ROUTES)
+    ],
+    providers: [
+        AuthGuard,
+        AppService,
+        AuthService,
+        LoginService,
+        MenuService
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
