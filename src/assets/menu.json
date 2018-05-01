@@ -1,0 +1,49 @@
+{
+    "menu": [
+       {
+            "title": "Dashboard",
+            "url": "/dashboard",
+            "index": 1,
+            "icon": "fa fa-dashboard fa-fw mr-3",
+            "parent": true
+        }, {
+            "title": "UI Elements",
+            "index": 2,
+            "icon": "fa fa-braille fa-fw mr-3",
+            "parent": true,
+            "child" : []
+        }, {
+            "title": "Components",
+            "index": 3,
+            "icon": "fa fa-cogs fa-fw mr-3",
+            "parent": true,
+            "child" : [
+                {
+                    "title": "Charts",
+                    "url": "/charts",
+                    "index": 1,
+                    "icon": "fa fa-bar-chart fa-fw mr-3",
+                    "parent": false
+                }, {
+                    "title": "Forms",
+                    "url": "/forms",
+                    "index": 2,
+                    "icon": "fa fa-bar-chart fa-fw mr-3",
+                    "parent": false
+                }, {
+                    "title": "Tables",
+                    "url": "/tables",
+                    "index": 3,
+                    "icon": "fa fa-bar-chart fa-fw mr-3",
+                    "parent": false
+                }
+            ]
+        }, {
+            "title": "Tasks",
+            "url": "/tasks",
+            "index": 4,
+            "icon": "fa fa-tasks fa-fw mr-3",
+            "parent": true
+        }
+    ]
+}
