@@ -20,7 +20,7 @@
     "import-spacing": true,
     "indent": [
       true,
-      "spaces"
+      "tabs"
     ],
     "interface-over-type-literal": true,
     "label-position": true,
@@ -138,5 +138,8 @@
     "no-access-missing-member": true,
     "templates-use-public": true,
     "invoke-injectable": true
+  },
+  "jsRules": {
+    "indent": [true, "tabs"],
   }
 }

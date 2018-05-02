@@ -22,7 +22,7 @@
                     "title": "Charts",
                     "url": "/charts",
                     "index": 1,
-                    "icon": "fa fa-bar-chart fa-fw mr-3",
+                    "icon": "fa fa-pie-chart fa-fw mr-3",
                     "parent": false
                 }, {
                     "title": "Forms",

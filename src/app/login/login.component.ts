@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
  
 import { LoginService } from './login.service';
+import { LocalstorageService } from '../common/localstorage/localstorage.service';
 
 
 @Component({
@@ -13,10 +14,12 @@ import { LoginService } from './login.service';
 export class LoginComponent implements OnInit {
 	userlogin: any = {};
 	username: any;
+    user: any;
 	password: any;
 	loginForm: FormGroup;
 
-	constructor(private router:Router, private loginService: LoginService, private fb: FormBuilder) {
+	constructor(private router:Router, private loginService: LoginService, private fb: FormBuilder,
+        public localstorageService: LocalstorageService) {
 	}
 
 	ngOnInit(): void {
@@ -53,6 +56,9 @@ export class LoginComponent implements OnInit {
           			}
                 }
             );*/
+
+            this.user = this.userlogin.username.split('@');
+            console.log(this.user);
 		} else if(!this.loginForm.controls.password.valid) {
 			this.userlogin.error = true;
 			this.userlogin.errorMgs = "Invalied Password";

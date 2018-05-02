@@ -3,6 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { LocalStorageModule } from '@ngx-pwa/local-storage';
 
 import { AppComponent } from './app.component';
 import { NoContentComponent } from './no-content';
@@ -26,7 +27,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginService } from './login/login.service';
 import { SidebarComponent } from './common/sidebar/sidebar.component';
 import { MenuService } from './common/menu/menu.service';
-
+import { LocalstorageService } from './common/localstorage/localstorage.service';
 
 @NgModule({
     declarations: [
@@ -40,6 +41,7 @@ import { MenuService } from './common/menu/menu.service';
     ],
     imports: [
         BrowserModule,
+        LocalStorageModule,
         FormsModule,
         ReactiveFormsModule,
         HttpModule,
@@ -51,7 +53,8 @@ import { MenuService } from './common/menu/menu.service';
         AppService,
         AuthService,
         LoginService,
-        MenuService
+        MenuService,
+        LocalstorageService
     ],
     bootstrap: [AppComponent]
 })

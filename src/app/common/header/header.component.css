@@ -83,3 +83,13 @@ nav {
     -webkit-border-radius: 50%;
     border-radius: 50%;
 }
+
+.navbar-content {
+    padding: 5px;
+}
+
+.navbar-content:hover {
+    background-color: #1c364b;
+    cursor: pointer;
+}
+    
