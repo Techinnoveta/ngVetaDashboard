@@ -7,18 +7,19 @@ import { AuthService } from '../../auth/auth.service';
 import { LocalstorageService } from '../../common/localstorage/localstorage.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-	user : any ;
+	user : any = {};
 	isLogged : boolean ;
-  	constructor(private router:Router, public authService: AuthService,  public localstorageService: LocalstorageService) { }
+  	constructor(private router:Router, public authService: AuthService,  public localstorageService: LocalstorageService) {
+    
+    }
 
   	ngOnInit() {
-      this.localstorageService.setUser();
-      console.log(this.localstorageService.getUser());
+        this.user = this.localstorageService.getUser();
   	}
 
     logout(): void {

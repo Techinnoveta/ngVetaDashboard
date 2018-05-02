@@ -14,11 +14,11 @@ import { LocalstorageService } from '../common/localstorage/localstorage.service
 export class LoginComponent implements OnInit {
 	userlogin: any = {};
 	username: any;
-    user: any;
+    user: any = {};
 	password: any;
 	loginForm: FormGroup;
 
-	constructor(private router:Router, private loginService: LoginService, private fb: FormBuilder,
+	constructor(private router:Router, private loginService: LoginService, 			private fb: FormBuilder,
         public localstorageService: LocalstorageService) {
 	}
 
@@ -30,13 +30,13 @@ export class LoginComponent implements OnInit {
 	}
 
 	public login(): void{
-		console.log(this.loginForm.controls);
 		if(this.loginForm.controls.password.valid && this.loginForm.controls.username.valid){
 			this.userlogin.password = this.loginForm.controls.password.value;
 			this.userlogin.username = this.loginForm.controls.username.value;
-			//console.log(this.loginService.login(this.userlogin));
+			this.user.name = this.userlogin.username.split('@')[0];
+			this.localstorageService.setUser(this.user);
 			localStorage.setItem("sessionKey", JSON.stringify("REcsdsdvsdr42326534ghcdgdvhsdtrdvcsg-433325gcfgdc"));
-						this.router.navigate(['dashboard']);
+			this.router.navigate(['dashboard']);
 			/*this.loginService.login(this.userlogin)
 			.subscribe(
                 res => {
@@ -56,9 +56,6 @@ export class LoginComponent implements OnInit {
           			}
                 }
             );*/
-
-            this.user = this.userlogin.username.split('@');
-            console.log(this.user);
 		} else if(!this.loginForm.controls.password.valid) {
 			this.userlogin.error = true;
 			this.userlogin.errorMgs = "Invalied Password";
