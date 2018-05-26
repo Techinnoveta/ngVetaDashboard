@@ -3,7 +3,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { LocalStorageModule } from '@ngx-pwa/local-storage';
 
 import { AppComponent } from './app.component';
 import { NoContentComponent } from './no-content';
@@ -41,12 +40,11 @@ import { LocalstorageService } from './common/localstorage/localstorage.service'
     ],
     imports: [
         BrowserModule,
-        LocalStorageModule,
         FormsModule,
         ReactiveFormsModule,
         HttpModule,
         HttpClientModule,
-        RouterModule.forRoot(ROUTES)
+        RouterModule.forRoot(ROUTES, {useHash: false})
     ],
     providers: [
         AuthGuard,

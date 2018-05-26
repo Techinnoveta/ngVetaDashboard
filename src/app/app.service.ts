@@ -1,9 +1,10 @@
+
+import {throwError as observableThrowError, Observable} from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import 'rxjs/Rx';
-import {Observable} from 'rxjs';
+import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 
 @Injectable()
 export class AppService {
@@ -16,16 +17,16 @@ export class AppService {
 
     post(api, data): Observable<any>{
         return this.http.post(
-        	this.buildUrl(api), data)
-        	.map(this.normalCallback)
-        	.catch(this.errorCallback);
+            this.buildUrl(api), data)
+            .pipe(map(this.normalCallback))
+        	.pipe(catchError(this.errorCallback));
     }
 
     get(api, data): Observable<any>{
         return this.http.get(
-        	this.buildUrl(api))
-        	.map(this.normalCallback)
-        	.catch(this.errorCallback);
+            this.buildUrl(api))
+            .pipe(map(this.normalCallback))
+        	.pipe(catchError(this.errorCallback));
     }
 
     buildUrl(api) {
@@ -56,8 +57,7 @@ export class AppService {
 	        localStorage.removeItem('sessionKey');
 	        this.router.navigate(['login']);
 	    }
-
-	    return Observable.throw(res.error);
+	    return observableThrowError(res.error);
 	}
 
 }
