@@ -1,5 +1,5 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler navbar-toggler-right d-block d-xl-none d-lg-none d-md-none " type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
   </button>
     <a class="navbar-brand navbar-nav mr-auto" href="#">NgVetaDashboard</a>
@@ -27,7 +27,7 @@
           
         </ul>
     </div>
-    <div  *ngIf="authService.isLoggedIn()" class="header-rightside form-inline .d-sm-none .d-md-block">
+    <div  *ngIf="authService.isLoggedIn()" class="header-rightside form-inline d-none d-md-block">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><img class="profile-img" src="assets/img/avatar.png" alt="user" >

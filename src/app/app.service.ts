@@ -2,7 +2,7 @@
 import {throwError as observableThrowError, Observable} from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 
@@ -10,35 +10,63 @@ import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 export class AppService {
     apiEndPoint: string = environment.apiurl;
     response: Object;
-    sessionKey: string;
-  	constructor(private router:Router, private http: HttpClient) {
-  	   this.sessionKey = JSON.parse(localStorage.getItem('sessionKey'));
-  	}
+    token: string;
+    data: any;
+    error: any;
+    httpOptions: any;
+    
+  	constructor(private router:Router, private http: HttpClient,) {
+  	   this.token = JSON.parse(localStorage.getItem('token'));
+    }
+      
+    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        this.token = JSON.parse(localStorage.getItem('token'));
+        if(this.token) {
+            request = request.clone({
+                headers: request.headers.set(
+                    'Authorization', 'Bearer ' + this.token
+                )
+            });
+        }
+        return next.handle(request);
+    }
 
     post(api, data): Observable<any>{
         return this.http.post(
-            this.buildUrl(api), data)
-            .pipe(map(this.normalCallback))
-        	.pipe(catchError(this.errorCallback));
+            this.buildUrl(api), data);
     }
 
     get(api, data): Observable<any>{
         return this.http.get(
             this.buildUrl(api))
-            .pipe(map(this.normalCallback))
-        	.pipe(catchError(this.errorCallback));
+    }
+
+    postWithJWT(api, data): Observable<any>{
+        this.token = JSON.parse(localStorage.getItem('token'));
+        this.httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                Authorization: 'Bearer ' + this.token
+            })
+        };
+        return this.http.post(
+            this.buildUrl(api), data, this.httpOptions);
+    }
+
+    getWithJWT(api, data): Observable<any>{
+        this.token = JSON.parse(localStorage.getItem('token'));
+        this.httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type':  'application/json',
+                Authorization: 'Bearer ' + this.token
+            })
+        };
+        return this.http.get(
+            this.buildUrl(api), this.httpOptions)
     }
 
     buildUrl(api) {
         let url = this.apiEndPoint + api;
-        this.sessionKey = JSON.parse(localStorage.getItem('sessionKey'));
-        if (this.sessionKey) {
-            if (url.indexOf('?') > -1) {
-                url += '&sessionKey=' + this.sessionKey;
-            } else {
-                url += '?sessionKey=' + this.sessionKey;
-            }
-        }
         return url;
     }
 
@@ -54,7 +82,7 @@ export class AppService {
 	errorCallback(res) {
 		console.log(res);
 	    if (res.error.code == 105) { //session timeout
-	        localStorage.removeItem('sessionKey');
+	        localStorage.removeItem('token ');
 	        this.router.navigate(['login']);
 	    }
 	    return observableThrowError(res.error);

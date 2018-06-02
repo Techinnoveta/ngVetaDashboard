@@ -3,6 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { httpInterceptorProviders } from './common/http-interceptors/index' 
 
 import { AppComponent } from './app.component';
 import { NoContentComponent } from './no-content';
@@ -28,6 +29,11 @@ import { SidebarComponent } from './common/sidebar/sidebar.component';
 import { MenuService } from './common/menu/menu.service';
 import { LocalstorageService } from './common/localstorage/localstorage.service';
 
+
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -44,7 +50,10 @@ import { LocalstorageService } from './common/localstorage/localstorage.service'
         ReactiveFormsModule,
         HttpModule,
         HttpClientModule,
-        RouterModule.forRoot(ROUTES, {useHash: false})
+        RouterModule.forRoot(ROUTES, {useHash: false}),
+        MatGridListModule,
+        MatCardModule,
+        MatButtonModule
     ],
     providers: [
         AuthGuard,
@@ -52,7 +61,8 @@ import { LocalstorageService } from './common/localstorage/localstorage.service'
         AuthService,
         LoginService,
         MenuService,
-        LocalstorageService
+        LocalstorageService,
+        httpInterceptorProviders
     ],
     bootstrap: [AppComponent]
 })

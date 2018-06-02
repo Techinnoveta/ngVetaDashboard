@@ -9,7 +9,7 @@ export class AuthService {
 	}
 
 	isLoggedIn(): boolean {
-		this.sessionKey = JSON.parse(localStorage.getItem('sessionKey'));
+		this.sessionKey = JSON.parse(localStorage.getItem('token'));
 		if (this.sessionKey) {
 			return true;
 		}

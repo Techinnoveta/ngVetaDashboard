@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   	}
 
     logout(): void {
-        localStorage.removeItem('sessionKey');
+        localStorage.removeItem('token');
         this.router.navigate(['login']);
     }
 

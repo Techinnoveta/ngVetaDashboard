@@ -1,28 +1,30 @@
-<app-header *ngIf="authService.isLoggedIn()"></app-header>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <app-header *ngIf="authService.isLoggedIn()"></app-header>
 
-<main *ngIf="authService.isLoggedIn()">
-	<!-- Bootstrap row -->
-	<div class="row" id="body-row">
+    <main *ngIf="authService.isLoggedIn()">
+        <!-- Bootstrap row -->
+        <div class="row app-content" id="body-row">
 
-		<!-- Side bar -->
-		<app-sidebar></app-sidebar>
+            <!-- Side bar -->
+            <app-sidebar></app-sidebar>
 
-		 <!-- MAIN -->
-	    <div class="col">
-	        <div class="card">
-	            <h4 class="card-header">{{pageInfo?.title}}</h4>
-	            <div class="card-body">
-	                <router-outlet></router-outlet>
-	            </div>
-	        </div>
-	       
+            <!-- MAIN -->
+            <div class="col">
+                <div class="card">
+                    <h4 class="card-header">{{pageInfo?.title}}</h4>
+                    <div class="card-body">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+            
 
 
-	    </div><!-- Main Col END -->
-	    
-	</div><!-- body-row END -->
-  	
-</main>
+            </div><!-- Main Col END -->
+            
+        </div><!-- body-row END -->
+        
+    </main>
+</nav>
 
 <main *ngIf="!authService.isLoggedIn()">
 	<router-outlet></router-outlet>

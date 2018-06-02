@@ -40,7 +40,7 @@ input{
 }
 
 .login {
-	min-height: calc(100vh - 180px);
+	min-height: calc(100vh - 60px);
 }
 .login-container{
     position: relative;

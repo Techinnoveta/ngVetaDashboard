@@ -1,6 +1,6 @@
 main {
     min-height: calc(100vh - 120px);
-    color: #ffffff;
+    color: #d3ebff;
 }
 
 .card {
@@ -10,7 +10,8 @@ main {
 }
 
 .card-body {
-	padding: 20px;
+    padding: 20px;
+    padding-left: 10px;
 }
 
 .card-header {
@@ -22,4 +23,12 @@ main {
 
 .row {
 	margin-right: 0px;
+}
+
+.navbar {
+    padding: 0px;
+}
+
+.app-content{
+    padding-left: 16px;
 }

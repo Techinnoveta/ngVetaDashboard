@@ -34,28 +34,27 @@ export class LoginComponent implements OnInit {
 			this.userlogin.password = this.loginForm.controls.password.value;
 			this.userlogin.username = this.loginForm.controls.username.value;
 			this.user.name = this.userlogin.username.split('@')[0];
-			this.localstorageService.setUser(this.user);
-			localStorage.setItem("sessionKey", JSON.stringify("REcsdsdvsdr42326534ghcdgdvhsdtrdvcsg-433325gcfgdc"));
-			this.router.navigate(['dashboard']);
-			/*this.loginService.login(this.userlogin)
+			// this.localstorageService.setUser(this.user);
+			// localStorage.setItem("sessionKey", JSON.stringify("REcsdsdvsdr42326534ghcdgdvhsdtrdvcsg-433325gcfgdc"));
+			// this.router.navigate(['dashboard']);
+			this.loginService.login(this.userlogin)
 			.subscribe(
                 res => {
-                	console.log(res);
-                    if(res.result == 'ok'){
-                    	console.log(res);
-						localStorage.setItem("sessionKey", JSON.stringify(res.data.sessionKey));
+                    if(res.result){
+                        console.log(res);
+                        localStorage.setItem("token", JSON.stringify(res.token));
+                        this.localstorageService.setUser(this.user);
 						this.router.navigate(['dashboard']);
                     }
                 },
           		err => {
-          			console.log(err);
           			if(err.error){
+                        console.log(err);
           				this.userlogin.error = true;
-						this.userlogin.errorMgs = err.error.server_message;
-						console.log(this.userlogin);
+						this.userlogin.errorMgs = err.error.message;
           			}
                 }
-            );*/
+            );
 		} else if(!this.loginForm.controls.password.valid) {
 			this.userlogin.error = true;
 			this.userlogin.errorMgs = "Invalied Password";

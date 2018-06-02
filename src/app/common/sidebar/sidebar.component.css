@@ -3,7 +3,7 @@
     margin-right:0;
 }
 #sidebar-container {
-    min-height: 100vh;   
+    min-height: 100%;   
     background-color: #070e13;
     padding: 0;
 }
@@ -20,7 +20,7 @@
 /* Menu item*/
 #sidebar-container .list-group a {
     height: 50px;
-    color: white;
+    color: #d3ebff;
 }
 
 /* Submenu item*/
@@ -50,7 +50,9 @@
     background-color: #070e13;
     border: 1px solid rgba(0, 0, 0, 0.11);
 }
-
+.menu-collapsed:focus {
+    outline: none;
+}
 /* Closed submenu icon */
 #sidebar-container .list-group .list-group-item[aria-expanded="false"] .submenu-icon::after {
   content: " \f0d7";
@@ -66,4 +68,8 @@
   display: inline;
   text-align: right;
   padding-left: 10px;
+}
+
+.list-group { 
+    min-height: 80vh;
 }
